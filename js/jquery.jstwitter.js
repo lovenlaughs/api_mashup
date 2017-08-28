@@ -37,7 +37,7 @@ $(function() {
 	        }
 
 	        $.ajax({
-	            url: 'https://lovenlaughs.github.io/api_mashup/grabtweets.html',
+	            url: 'https://lovenlaughs.github.io/api_mashup/grabtweets.php',
 	            type: 'POST',
 	            dataType: 'json',
 	            data: request,
