@@ -1,0 +1,315 @@
+ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	
+	li {
+		float: left;
+		padding: 16px;
+		color: #414141;
+	}
+	
+	ul #places li {
+		float: right;
+	}
+		
+	.material-icons.right {
+		 font-style: normal;
+	}
+	
+	nav {
+		background-color: #e91e63;
+	}
+	
+	h2 {
+		color: #1446a0;
+	}
+	
+	h3 {
+		color: #00bcd4;
+	}
+	
+	h4 {
+		color: #00bcd4;
+		display: none;
+	}
+	
+	h5 {
+		font-size: 16px;
+	}
+	
+	.card {
+		background-color: #fff;
+		float: left;
+	}
+	
+	input[type="text"] {
+		width: 50%;
+	}
+	
+	.name {
+		visibility: hidden;
+		font-size: 2px;
+	}
+	
+	#results, #results2, #results3, #results4, #results5, #results6, #results7, 
+	#results8, #results9, #results10, #results11, #results12, #results13, #results14,
+	#results15, #results16, #results17, #results18 {
+		color: #000;
+		width: 500px;
+		font-size: 14px;
+	}
+	
+	@media only screen and (min-width: 360px) and (max-width: 435px) {
+	#results, #results2, #results3, #results4, #results5, #results6, #results7, 
+	#results8, #results9, #results10, #results11, #results12, #results13, #results14,
+	#results15, #results16, #results17, #results18 	{
+			width: 200px;
+		}
+	}
+	
+	@media only screen and (min-width: 436px) and (max-width: 594px) {
+	#results, #results2, #results3, #results4, #results5, #results6, #results7, 
+	#results8, #results9, #results10, #results11, #results12, #results13, #results14,
+	#results15, #results16, #results17, #results18 	{
+			width: 260px;
+		}
+	}
+	
+	@media only screen and (min-width: 768px) and (max-width: 1034px) {
+	#results, #results2, #results3, #results4, #results5, #results6, #results7, 
+	#results8, #results9, #results10, #results11, #results12, #results13, #results14,
+	#results15, #results16, #results17, #results18 	{
+			width: 750px;
+		}
+	}
+	
+	@media only screen and (min-width: 1035px) and (max-width: 1236px) {
+	#results, #results2, #results3, #results4, #results5, #results6, #results7, 
+	#results8, #results9, #results10, #results11, #results12, #results13, #results14,
+	#results15, #results16, #results17, #results18 	{
+			width: 400px;
+		}
+	}
+	
+	#results2, #results4, #results6, #results8, #results10, #results12, #results14,
+	#results16, #results18 {
+		color: #000;
+		width: 500px;
+		font-size: 14px;
+		text-align: left;
+	}
+	
+	@media only screen and (min-width: 1035px) and (max-width: 1236px) {
+	#results2, #results4, #results6, #results8, #results10, #results12, #results14,
+	#results16, #results18 	{
+			width: 400px;
+		}
+	}
+	
+	@media only screen and (min-width: 768px) and (max-width: 1034px) {
+	#results2, #results4, #results6, #results8, #results10, #results12, #results14,
+	#results16, #results18 	{
+			width: 750px;
+		}
+	}
+	
+	@media only screen and (min-width: 360px) and (max-width: 435px) {
+	#results2, #results4, #results6, #results8, #results10, #results12, #results14,
+	#results16, #results18 	{
+			width: 200px;
+		}
+	}
+	
+	@media only screen and (min-width: 436px) and (max-width: 594px) {
+	#results2, #results4, #results6, #results8, #results10, #results12, #results14,
+	#results16, #results18 	{
+			width: 200px;
+		}
+	}
+	
+	#timer {
+		font-size: 18px;
+		font-weight: bold;
+		color: #00bcd4;
+	}
+	
+	.food:hover {
+		background-color: #e91e63;
+	}
+	
+	.food:hover li {
+		color: white;
+	}
+	
+	#info {
+		-webkit-border-radius:5px;
+		-moz-border-radius:5px;
+		border-radius:5px;				
+		background:#fcf8e3;
+		border:1px solid  #fbeed5;
+		width:100%;
+		max-width:900px;
+		margin:0 auto 10px auto;
+	}
+	
+		#info .info-wrapper {
+			padding:10px;
+		}
+		
+		#info a {
+			color:#c09853;
+			text-decoration:none;
+		}
+		
+		#info p {
+			margin:5px 0 0 0;
+		}	
+	
+	#jstwitter {
+		position: relative;
+		display: none;
+	}
+	
+		#jstwitter .item {
+			-webkit-border-radius:5px;
+			-moz-border-radius:5px;
+			border-radius:5px;
+			-webkit-box-shadow:0 0 3px 1px rgba(100,100,100,0.2);
+			-moz-box-shadow:0 0 3px 1px rgba(100,100,100,0.2);
+			box-shadow:0 0 3px 1px rgba(100,100,100,0.2);						
+			overflow:hidden;
+			background: #fff;
+		}
+		
+			#jstwitter .tweet-wrapper {
+				padding:10px;
+				-webkit-box-sizing:border-box;
+				-moz-box-sizing:border-box;
+				box-sizing:border-box;								
+		    line-height:16px;				
+			}
+	 
+		#jstwitter .item a {
+		    text-decoration: none;
+		    color: #03a8e5;
+		}
+		
+		#jstwitter .item img {
+				width:100%;
+		}	
+		 
+		#jstwitter .item a:hover {
+		    text-decoration: underline;
+		}
+		 
+		#jstwitter .item .text {
+		    display:block;
+
+		}
+		 
+		#jstwitter .item .time, #jstwitter .tweet .user {
+		    font-style: italic;
+		    color: #666666;		    
+		}
+		
+		#jstwitter2 {
+		position: relative;
+		display: none;
+	}
+	
+		#jstwitter2 .item {
+			-webkit-border-radius:5px;
+			-moz-border-radius:5px;
+			border-radius:5px;
+			-webkit-box-shadow:0 0 3px 1px rgba(100,100,100,0.2);
+			-moz-box-shadow:0 0 3px 1px rgba(100,100,100,0.2);
+			box-shadow:0 0 3px 1px rgba(100,100,100,0.2);						
+			overflow:hidden;
+			background: #fff;
+		}
+		
+			#jstwitter2 .tweet-wrapper {
+				padding:10px;
+				-webkit-box-sizing:border-box;
+				-moz-box-sizing:border-box;
+				box-sizing:border-box;								
+		    line-height:16px;				
+			}
+	 
+		#jstwitter2 .item a {
+		    text-decoration: none;
+		    color: #03a8e5;
+		}
+		
+		#jstwitter2 .item img {
+				width:100%;
+		}	
+		 
+		#jstwitter2 .item a:hover {
+		    text-decoration: underline;
+		}
+		 
+		#jstwitter2 .item .text {
+		    display:block;
+
+		}
+		 
+		#jstwitter2 .item .time, #jstwitter2 .tweet .user {
+		    font-style: italic;
+		    color: #666666;		    
+		}
+		
+		
+		#jstwitter3 {
+		position: relative;
+		display: none;
+	}
+	
+		#jstwitter3 .item {
+			-webkit-border-radius:5px;
+			-moz-border-radius:5px;
+			border-radius:5px;
+			-webkit-box-shadow:0 0 3px 1px rgba(100,100,100,0.2);
+			-moz-box-shadow:0 0 3px 1px rgba(100,100,100,0.2);
+			box-shadow:0 0 3px 1px rgba(100,100,100,0.2);						
+			overflow:hidden;
+			background: #fff;
+		}
+		
+			#jstwitter3 .tweet-wrapper {
+				padding:10px;
+				-webkit-box-sizing:border-box;
+				-moz-box-sizing:border-box;
+				box-sizing:border-box;								
+		    line-height:16px;				
+			}
+	 
+		#jstwitter3 .item a {
+		    text-decoration: none;
+		    color: #03a8e5;
+		}
+		
+		#jstwitter3 .item img {
+				width:100%;
+		}	
+		 
+		#jstwitter3 .item a:hover {
+		    text-decoration: underline;
+		}
+		 
+		#jstwitter3 .item .text {
+		    display:block;
+
+		}
+		 
+		#jstwitter3 .item .time, #jstwitter3 .tweet .user {
+		    font-style: italic;
+		    color: #666666;		    
+		}
+		
+		#tweets {
+			background-color: #fff;
+		}
