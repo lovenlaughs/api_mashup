@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> API Mashup </title>
+ <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/css/materialize.css">
+  <link rel="stylesheet" href="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+ 
+  <nav>
+    <div class="nav-wrapper">
+      <a href="api_mashup.php" class="brand-logo center">Event Square</a>
+    </div>
+  </nav>
+  
+<h2 class="brand-logo center"> Top Events in Orlando </h2>
+<div class="brand-logo center"><input type="text" id="search" onkeyup="myFunction()" placeholder="Search for events" title="Type in event name"></div>
+<div class="brand-logo center"><h3>Biggest Event (Merging Artists: The Movement) in </h3> <p id="timer"></p></div>
+<!--<div class="col s12 m7">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="http://lorempixel.com/100/190/nature/6" class = "image" width = "800" height = "100">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+		 <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"> &#8942 </i></span>
+          <p>I am a very simple card. I am good at containing small bits of information.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+	 <div class="card horizontal">
+      <div class="card-image">
+        <img src="http://lorempixel.com/100/190/nature/6" class = "image">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+<div class="brand-logo center">
+  <ul id = "eventbrite" class="collapsible popout" data-collapsible="accordion">
+    <li class = "event">
+      <div class="collapsible-header">
+		<img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/african_dance.jpg" alt = "openmic" width = "250" height = "150">
+			<div id = "results"></div>
+	  </div>
+      <div class="collapsible-body">
+	  <a href = "#" class = "link"><p class = "name">Discover, Dance, African, Mia, Redding</p>
+		<div id="results2"></div></a>
+	    Share <a href="http://twitter.com/intent/tweet?text=Discover Dance: Western African Dance with Mia Redding http://bit.ly/2nvdAfz @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+	  </div>
+    </li>
+    <li class = "event">
+      <div class="collapsible-header">
+		 <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/broadway.png" alt = "broadway" width = "250" height = "150">
+			<div id = "results3"></div>
+	  </div>
+      <div class="collapsible-body">
+	  <a href = "#" class = "link"><p class = "name">Broadway, Musical, Revue, WPS</p>
+		<div id = "results4"></div></a>
+		Share <a href="http://twitter.com/intent/tweet?text=A Broadway Musical Revue! http://bit.ly/2oMeZOO @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+	  </div>
+    </li>
+    <li class = "event">
+      <div class="collapsible-header">
+		<img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/merging_artists.jpg" alt = "artists" width = "250" height = "150">
+		<div id = "results5"></div>
+	  </div>
+      <div class="collapsible-body">
+	  <a href = "#" class = "link"><p class = "name">Merging, Artists, Movement, Abstract, Showcase</p>
+		<div id="results6"></div></a>
+		Share <a href="http://twitter.com/intent/tweet?text=Merging Artists: The Movement http://bit.ly/2ooFDkW @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+	  </div>
+    </li>
+  </ul>
+  
+  <ul id = "eventbrite2" class="collapsible popout" data-collapsible="accordion">
+    <li class = "event2">
+      <div class="collapsible-header">
+		<img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/comparative_drama.jpg" alt = "openmic" width = "250" height = "150">
+			<div id = "results7"></div>
+	  </div>
+      <div class="collapsible-body">
+	  <a href = "#" class = "link2"><p class = "name">Comparative, Drama, Conference</p>
+		<div id="results8"></div></a>
+	    Share <a href="http://twitter.com/intent/tweet?text=Discover Dance: Western African Dance with Mia Redding http://bit.ly/2nvdAfz @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+	  </div>
+    </li>
+    <li class = "event2">
+      <div class="collapsible-header">
+		 <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/stage_play.jpg" alt = "broadway" width = "250" height = "150">
+			<div id = "results9"></div>
+	  </div>
+      <div class="collapsible-body">
+	  <a href = "#" class = "link2"><p class = "name">MALCHUS, Musical, Play</p>
+		<div id = "results10"></div></a>
+		Share <a href="http://twitter.com/intent/tweet?text=A Broadway Musical Revue! http://bit.ly/2oMeZOO @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+	  </div>
+    </li>
+    <li class = "event2">
+      <div class="collapsible-header">
+		<img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/calligraphy.png" alt = "artists" width = "250" height = "150">
+		<div id = "results11"></div>
+	  </div>
+      <div class="collapsible-body">
+	  <a href = "#" class = "link2"><p class = "name">Traditional, Calligraphy</p>
+		<div id="results12"></div></a>
+		Share <a href="http://twitter.com/intent/tweet?text=Merging Artists: The Movement http://bit.ly/2ooFDkW @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+	  </div>
+    </li>
+  </ul>
+</div>
+   <!--<div class="row">
+      <div class="col s12 m6 l3">
+	   <ul id = "eventbrite">
+	<li class = "event">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/african_dance.jpg" alt = "openmic">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"> &#8942 </i></span>
+	<a href = "#" class = "link"><p class = "name">Discover, Dance, African, Mia, Redding</p>
+	<div id = "results"></div>
+	</a>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+       <div id="results2"></div>
+	   Share <a href="http://twitter.com/intent/tweet?text=Discover Dance: Western African Dance with Mia Redding http://bit.ly/2nvdAfz @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+    </div>
+  </div> 
+	</li>
+	<li class = "event">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/broadway.png" alt = "broadway">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"> &#8942 </i></span>
+	<a href = "#" class = "link"><p class = "name">Broadway, Musical, Revue, WPS</p>
+	<div id = "results3"></div>
+	</a>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+       <div id="results4"></div>
+	   	   Share <a href="http://twitter.com/intent/tweet?text=A Broadway Musical Revue! http://bit.ly/2oMeZOO @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+    </div>
+  </div> 
+	</li>
+	<li class = "event">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/merging_artists.jpg" alt = "openmic">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"> &#8942 </i></span>
+	<a href = "#" class = "link"><p class = "name">Merging, Artists, Movement, Abstract, Showcase</p>
+	<div id = "results5"></div>
+	</a>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+       <div id="results6"></div>
+	   	Share <a href="http://twitter.com/intent/tweet?text=Merging Artists: The Movement http://bit.ly/2ooFDkW @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+    </div>
+  </div> 
+	</li>
+	</ul>
+      </div>
+	  
+	   <div class="col s12 m6 l3">
+	   <ul id = "eventbrite2">
+	<li class = "event2">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/comparative_drama.jpg" alt = "openmic">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"> &#8942 </i></span>
+	<a href = "#" class = "link2"><p class = "name">Comparative, Drama, Conference</p>
+	<div id = "results7"></div>
+	</a>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+       <div id="results8"></div>
+	   Share <a href="http://twitter.com/intent/tweet?text=Comparative Drama Conference 2017 http://bit.ly/2oMtC4J @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+    </div>
+  </div> 
+	</li>
+	<li class = "event2">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/stage_play.jpg" alt = "openmic">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"> &#8942 </i></span>
+	<a href = "#" class = "link2"><p class = "name">MALCHUS, Musical, Play</p>
+	<div id = "results9"></div>
+	</a>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+       <div id="results10"></div>
+	    Share <a href="http://twitter.com/intent/tweet?text=MALCHUS The Musical Stage Play http://bit.ly/2ovEmFt @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+    </div>
+  </div> 
+	</li>
+	<li class = "event2">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/calligraphy.png" alt = "openmic">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"> &#8942 </i></span>
+	<a href = "#" class = "link2"><p class = "name">Traditional, Calligraphy</p>
+	<div id = "results11"></div>
+	</a>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+       <div id="results12"></div>
+	   Share <a href="http://twitter.com/intent/tweet?text=Traditional Calligraphy 101 http://bit.ly/2nYig0q @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+    </div>
+  </div> 
+	</li>
+	</ul>
+      </div>
+	  
+	   <div class="col s12 m6 l3">
+	   <ul id = "eventbrite3">
+	<li class = "event3">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/open_mic.jpg" alt = "openmic">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"> &#8942 </i></span>
+	<a href = "#" class = "link3"><p class = "name">Open, Mic, Friday's</p>
+	<div id = "results13"></div>
+	</a>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+       <div id="results14"></div>
+	   	Share <a href="http://twitter.com/intent/tweet?text=Open Mic Friday's http://bit.ly/2ooJm1w @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+    </div>
+  </div> 
+	</li>
+	<li class = "event3">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/arts_and_crafts.jpg" alt = "openmic">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"> &#8942 </i></span>
+	<a href = "#" class = "link3"><p class = "name">Art, Craft, Festival, Brownwood, Paddock, Square, The Villages</p>
+	<div id = "results15"></div>
+	</a>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+       <div id="results16"></div>
+	   Share <a href="http://twitter.com/intent/tweet?text=Art & Craft Festival at Brownwood Paddock Square http://bit.ly/2nN47Tn @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+    </div>
+  </div> 
+	</li>
+	<li class = "event3">
+        <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/images/expression.jpg" alt = "openmic">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><i class="material-icons right"> &#8942 </i></span>
+	<a href = "#" class = "link3"><p class = "name">Expression, Song, John, Dumas, Wine, Reception</p>
+	<div id = "results17"></div>
+	</a>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+       <div id="results18"></div>
+	   Share <a href="http://twitter.com/intent/tweet?text=Expression of Song: John Dumas http://bit.ly/2ook0kh @eventbrite" onclick="window.open(this.href, 'twitterwindow','left=20,top=20,width=600,height=300,toolbar=0,resizable=1'); return false;"><i class="fa fa-twitter" style="font-size:24px"></i></a>
+    </div>
+  </div> 
+	</li>
+	</ul>
+      </div>
+</div>--> 
+  
+<h2 class="brand-logo center"> Explore Orlando </h2>
+
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a class = "active" href="#test4" style="color:#00bcd4;">Food</a></li>
+        <li class="tab"><a href="#test5" style="color:#00bcd4;">Fun</a></li>
+        <li class="tab"><a href="#test6" style="color:#00bcd4;">Shopping</a></li>
+      </ul>
+    </div>
+
+
+	<div id="test4">
+        <div id="places"></div>
+	</div>
+    <div id="test5">
+		<div id="places2"></div>
+	</div>
+    <div id="test6">
+		<div id="places3"></div>
+	</div>
+	
+	<a class="waves-effect waves-light btn" id = "reviews">Reviews</a>
+	
+<h4> Jeremiah's Italian Ice </h4>
+ <div class="row">
+        <div class="col s12">
+          <div class="card" id = "tweets">
+            <div class="card-content">
+                <div id = "jstwitter"></div>
+          </div>
+        </div>
+      </div>
+</div>
+<h4> Buca di Beppo Italian Restaurant </h4>
+	<div class="row">
+        <div class="col s12">
+          <div class="card" id = "tweets">
+            <div class="card-content">
+                <div id = "jstwitter2"></div>
+          </div>
+        </div>
+      </div>
+</div>
+<h4> Pancheros Mexican Grill </h4>
+  <div class="row">
+        <div class="col s12">
+          <div class="card" id = "tweets">
+            <div class="card-content">
+                <div id = "jstwitter3"></div>
+          </div>
+        </div>
+      </div>
+</div>
+  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+<script>
+  
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  }); 
+  
+  $(document).ready(function() {
+  $("#reviews").click(function() {
+	  $("#jstwitter").show();
+	  $("#jstwitter2").show();
+	  $("#jstwitter3").show();
+	  $("h4").show();
+  });
+  });
+  
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://www.eventbriteapi.com/v3/events/32959727432/?token=6MDI7H6RV2GOU4JY6PWP",
+    "method": "GET",
+    "headers": {}
+  } 
+  
+  var settings2 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://www.eventbriteapi.com/v3/events/27407042201/?token=6MDI7H6RV2GOU4JY6PWP",
+    "method": "GET",
+    "headers": {}
+  }
+  
+  var settings3 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://www.eventbriteapi.com/v3/events/32370500037/?token=6MDI7H6RV2GOU4JY6PWP",
+    "method": "GET",
+    "headers": {}
+  }
+  
+  var settings4 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://www.eventbriteapi.com/v3/events/25953854678/?token=6MDI7H6RV2GOU4JY6PWP",
+    "method": "GET",
+    "headers": {}
+  }
+  
+  var settings5 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://www.eventbriteapi.com/v3/events/31730528866/?token=6MDI7H6RV2GOU4JY6PWP",
+    "method": "GET",
+    "headers": {}
+  }
+  
+  var settings6 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://www.eventbriteapi.com/v3/events/32964105527/?token=6MDI7H6RV2GOU4JY6PWP",
+    "method": "GET",
+    "headers": {}
+  }
+  
+  var settings7 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://www.eventbriteapi.com/v3/events/31659662904/?token=6MDI7H6RV2GOU4JY6PWP",
+    "method": "GET",
+    "headers": {}
+  }
+  
+  var settings8 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://www.eventbriteapi.com/v3/events/33081228846/?token=6MDI7H6RV2GOU4JY6PWP",
+    "method": "GET",
+    "headers": {}
+  }
+ 
+ 
+ var settings9 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://www.eventbriteapi.com/v3/events/33216065145/?token=6MDI7H6RV2GOU4JY6PWP",
+    "method": "GET",
+    "headers": {}
+  }
+ 
+ 
+  $.ajax(settings).done(function(data) {
+    console.log(data);
+	var content = "<h5>" + data.name.text + "</h5>" + data.start.local;
+    $("#results").append(content);
+    var content2 = "<h5>" + data.name.text + "</h5>" + data.description.html + data.start.local;
+    $("#results2").append(content2);
+  });
+  
+  $.ajax(settings2).done(function(data) {
+    console.log(data);
+	var content3 = "<h5>" + data.name.text + "</h5>" + data.start.local;
+    $("#results3").append(content3);
+    var content4 = "<h5>" + data.name.text + "</h5>" + data.description.html + data.start.local;
+    $("#results4").append(content4);
+  });
+  
+  $.ajax(settings3).done(function(data) {
+    console.log(data);
+	var content5 = "<h5>" + data.name.text + "</h5>" + data.start.local;
+    $("#results5").append(content5);
+    var content6 = "<h5>" + data.name.text + "</h5>" + data.description.html + data.start.local;
+    $("#results6").append(content6);
+  });
+  
+  $.ajax(settings4).done(function(data) {
+    console.log(data);
+	var content7 = "<h5>" + data.name.text + "</h5>" + data.start.local;
+    $("#results7").append(content7);
+    var content8 = "<h5>" + data.name.text + "</h5>" + data.description.html + data.start.local;
+    $("#results8").append(content8);
+  });
+  
+  $.ajax(settings5).done(function(data) {
+    console.log(data);
+	var content9 = "<h5>" + data.name.text + "</h5>" + data.start.local;
+    $("#results9").append(content9);
+    var content10 = "<h5>" + data.name.text + "</h5>" + data.description.html + data.start.local;
+    $("#results10").append(content10);
+  });
+  
+  $.ajax(settings6).done(function(data) {
+    console.log(data);
+	var content11 = "<h5>" + data.name.text + "</h5>" + data.start.local;
+    $("#results11").append(content11);
+    var content12 = "<h5>" + data.name.text + "</h5>" + data.description.html + data.start.local;
+    $("#results12").append(content12);
+  });
+  
+  $.ajax(settings7).done(function(data) {
+    console.log(data);
+	var content13 = "<h5>" + data.name.text + "</h5>" + data.start.local;
+    $("#results13").append(content13);
+    var content14 = "<h5>" + data.name.text + "</h5>" + data.description.html + data.start.local;
+    $("#results14").append(content14);
+  });
+  
+  $.ajax(settings8).done(function(data) {
+    console.log(data);
+	var content15 = "<h5>" + data.name.text + "</h5>" + data.start.local;
+    $("#results15").append(content15);
+    var content16 = "<h5>" + data.name.text + "</h5>" + data.description.html + data.start.local;
+    $("#results16").append(content16);
+  });
+  
+  $.ajax(settings9).done(function(data) {
+    console.log(data);
+	var content17 = "<h5>" + data.name.text + "</h5>" + data.start.local;
+    $("#results17").append(content17);
+    var content18 = "<h5>" + data.name.text + "</h5>" + data.description.html + data.start.local;
+    $("#results18").append(content18);
+  });
+
+ $.getJSON('https://api.foursquare.com/v2/venues/search?ll=40.7,-74&near=Orlando&query=Mexican+Italian&client_id=E2OVGGFR1VZCMV2ETVKQ0OOHP23GL4NCN4Y24BAYUG1YAW5Z&client_secret=VPCKL013JHIDXVKBV0BL3S3DCOEVXGEQ0WIYJ4XNVZ3Y5VMS&v=20170327', 
+    function(data) {	
+        $.each(data.response.venues, function(i,venues){
+            name = '<div class = food>' + '<ul><li>' + venues.name + '<br>' + venues.location.formattedAddress + '</li></ul>' + '</div>';
+            $(name).appendTo("#places").css("border-top", "none").css("border-bottom", "1px solid #d8d8d8").css("width", "100%");
+	   });
+});
+
+ $.getJSON('https://api.foursquare.com/v2/venues/search?ll=40.7,-74&near=Orlando&query=Fun&client_id=E2OVGGFR1VZCMV2ETVKQ0OOHP23GL4NCN4Y24BAYUG1YAW5Z&client_secret=VPCKL013JHIDXVKBV0BL3S3DCOEVXGEQ0WIYJ4XNVZ3Y5VMS&v=20170327', 
+    function(data) {	
+        $.each(data.response.venues, function(i,venues){
+            name = '<div class = food>' + '<ul><li>' + venues.name + '<br>' + venues.location.formattedAddress + '</li></ul>' + '</div>';
+            $(name).appendTo("#places2").css("border-top", "none").css("border-bottom", "1px solid #d8d8d8").css("width", "100%");
+       });
+});
+
+ $.getJSON('https://api.foursquare.com/v2/venues/search?ll=40.7,-74&near=Orlando&query=Shopping&client_id=E2OVGGFR1VZCMV2ETVKQ0OOHP23GL4NCN4Y24BAYUG1YAW5Z&client_secret=VPCKL013JHIDXVKBV0BL3S3DCOEVXGEQ0WIYJ4XNVZ3Y5VMS&v=20170327', 
+    function(data) {	
+        $.each(data.response.venues, function(i,venues){
+            name = '<div class = food>' + '<ul><li>' + venues.name + '<br>' + venues.location.formattedAddress + '</li></ul>' + '</div>';
+            $(name).appendTo("#places3").css("border-top", "none").css("border-bottom", "1px solid #d8d8d8").css("width", "100%");
+       });
+});
+
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("eventbrite");
+    li = ul.getElementsByClassName("event");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByClassName("link")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+	
+	var input, filter, ul, li, a, i;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("eventbrite2");
+    li = ul.getElementsByClassName("event2");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByClassName("link2")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}
+
+var countDownDate = new Date("Apr 5, 2017 21:30:00").getTime();
+var x = setInterval(function() {
+
+    var now = new Date().getTime();
+ 
+    var distance = countDownDate - now;
+    
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "EXPIRED";
+    }
+}, 1000);
+
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/js/jquery.gridalicious.min.js"></script>
+<script type="text/javascript" src="http://sulley.cah.ucf.edu/~ti153451/DIG4503/assignment3/js/jquery.jstwitter.js"></script>
+<script type="text/javascript">
+$(function () {
+    // start jqtweet!
+    JQTWEET.loadTweets();
+    JQTWEET2.loadTweets();
+    JQTWEET3.loadTweets();
+});		
+</script>
+</body>
+</html>
